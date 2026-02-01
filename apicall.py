@@ -1,0 +1,28 @@
+from openai import OpenAI
+import os
+from dotenv import load_dotenv
+
+def Generate_Roadmap(role):
+    try:
+        load_dotenv()
+
+        api_key = os.getenv("GENAI_API_KEY")
+        if not api_key:
+            raise ValueError("GENAI_API_KEY not found in environment variables")
+
+        client = OpenAI(
+            base_url="https://router.huggingface.co/v1",
+            api_key=api_key,
+        )
+
+        response = client.chat.completions.create(
+            model="openai/gpt-oss-120b:cerebras",
+            messages=[
+                {"role": "user", "content": f"Give me RoadMap of {role}"}
+            ],
+        )
+
+        return response.choices[0].message.content
+
+    except Exception as e:
+        return f"Error generating roadmap: Api Balance Over"
