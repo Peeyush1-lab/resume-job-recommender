@@ -288,6 +288,6 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 Made with ❤️ for job seekers worldwide
 
-[⬆ Back to Top](#resume-based-job-recommender)
+[⬆ Back to Top](#-resume-based-job-recommender)
 
 </div>
